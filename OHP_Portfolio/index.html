@@ -125,7 +125,7 @@
     }
 
     nav {
-      background: rgba(255,255,255,0.95);
+      background: rgba(30, 34, 40, 0.95); /* Dark semi-transparent in light mode */
       padding: 0.6rem 1rem;
       position: sticky;
       top: 0;
@@ -133,6 +133,32 @@
       box-shadow: 0 4px 12px var(--shadow);
       backdrop-filter: blur(10px);
       border-radius: 0 0 16px 16px;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+      color: var(--text-light); /* Light text for readability on dark bg */
+    }
+
+    [data-theme="dark"] nav {
+      background: rgba(255, 255, 255, 0.95); /* White semi-transparent in dark mode */
+      box-shadow: 0 4px 12px var(--shadow-dark);
+      color: var(--text); /* Dark text for contrast on light bg */
+    }
+
+    /* Links in light mode (dark nav) */
+    nav a {
+      color: #a8e0d5; /* Soft light green on dark nav */
+    }
+
+    nav a:hover {
+      color: #d0f0ea; /* Brighter hover */
+    }
+
+    /* Links in dark mode (white nav) */
+    [data-theme="dark"] nav a {
+      color: var(--primary); /* Your green on white */
+    }
+
+    [data-theme="dark"] nav a:hover {
+      color: var(--primary-light);
     }
 
     nav ul {
@@ -143,17 +169,6 @@
       list-style: none;
       font-size: 1rem;
       font-weight: 600;
-    }
-
-    nav a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--primary-light);
-      transform: translateY(-2px);
     }
 
     main {
@@ -358,7 +373,7 @@
       <ul class="experience-list">
         <li class="experience-item">
           <div class="item-icon">
-            <img src="/OHP_Portfolio/assets/OU.png" alt="Ohio University">
+            <img src="/OHP_Portfolio/assets/OUB4D.png" alt="OUB4D">
           </div>
           <div class="item-content">
             <h3>Ohio University Bobcats for Discovery (OUBFD)</h3>
@@ -367,7 +382,7 @@
         </li>
         <li class="experience-item">
           <div class="item-icon">
-            <img src="/OHP_Portfolio/assets/OU.png" alt="Ohio University">
+            <img src="/OHP_Portfolio/assets/AAC.png" alt="AAC">
           </div>
           <div class="item-content">
             <h3>Physics & Math Lead Tutor / Supervisor</h3>
@@ -388,7 +403,7 @@
         </li>
         <li class="experience-item">
           <div class="item-icon">
-            <img src="/OHP_Portfolio/assets/STM.jpg" alt="Scanning Tunneling Microscope">
+            <img src="/OHP_Portfolio/assets/STM.jpeg" alt="Scanning Tunneling Microscope">
           </div>
           <div class="item-content">
             <h3>NQPI Spin Valve Revival Project</h3>
