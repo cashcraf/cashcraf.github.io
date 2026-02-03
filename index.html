@@ -11,11 +11,11 @@
       --primary-light: #008a68;    /* Brighter green for dark mode hover/emphasis */
       --text: #222;
       --text-light: #e0e0e0;
-      --bg: #f8f9fa;
+      --bg: white;                 /* Default: pure white */
       --bg-dark: #0f1217;
       --surface: white;
       --surface-dark: #1e2228;
-      --shadow: rgba(0,0,0,0.15);
+      --shadow: rgba(0,0,0,0.12);  /* Softer shadow for white bg */
       --shadow-dark: rgba(0,0,0,0.4);
       --border: white;
     }
@@ -140,7 +140,7 @@
       text-align: center;
     }
 
-    .portfolio-list {
+    .work-list {
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -148,7 +148,7 @@
       gap: 1.2rem;
     }
 
-    .portfolio-list a {
+    .work-list a {
       display: block;
       background-color: var(--surface);
       color: var(--primary);
@@ -165,7 +165,7 @@
       box-shadow: 0 4px 12px var(--shadow);
     }
 
-    .portfolio-list a:hover {
+    .work-list a:hover {
       background-color: var(--primary);
       color: white;
       transform: translateY(-4px);
@@ -210,11 +210,14 @@
     </p>
   </section>
 
-  <section class="portfolio">
-    <h2>Portfolios & Projects</h2>
-    <ul class="portfolio-list">
+  <section class="work">
+    <h2>Work & Research</h2>
+    <ul class="work-list">
       <li><a href="portfolio_2026/">Portfolio 2026</a></li>
-      <!-- Add more as needed -->
+      <li><a href="https://cashcraf.itch.io/">itch.io Profile – Indie Games & Experiments</a></li>
+      <!-- Add more links here, e.g.:
+      <li><a href="research-jefflab/">Jefferson Lab – Photomultiplier Research</a></li>
+      -->
     </ul>
   </section>
 
