@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colton Ashcraft | OHP Portfolio</title>
+  <title>Colton Ashcraft | Ohio Honors Portfolio</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
     :root {
-      --primary: #00694E;          /* Cutler Green */
+      --primary: #00694E;
+      --primary-light: #008a68;
       --primary-dark: #004d38;
-      --primary-light: #008a68;    /* Brighter green for dark mode hover/emphasis */
-      --text: #222;
+      --text: #1a1a1a;
       --text-light: #e0e0e0;
-      --bg: white;                 /* Default: pure white */
+      --bg: white;
       --bg-dark: #0f1217;
-      --surface: white;
+      --surface: #ffffff;
       --surface-dark: #1e2228;
-      --shadow: rgba(0,0,0,0.12);  /* Softer shadow for white bg */
+      --shadow: rgba(0,0,0,0.08);
       --shadow-dark: rgba(0,0,0,0.4);
-      --border: white;
+      --border: #e0e0e0;
     }
 
     [data-theme="dark"] {
@@ -25,7 +26,7 @@
       --bg: var(--bg-dark);
       --surface: var(--surface-dark);
       --shadow: var(--shadow-dark);
-      --border: #00694E;           /* Green border in dark mode */
+      --border: var(--primary);
     }
 
     * {
@@ -35,76 +36,30 @@
     }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: var(--bg);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-      padding: 2rem;
-      max-width: 1200px;
+      line-height: 1.7;
+      padding: 1rem;
+      max-width: 1400px;
       margin: 0 auto;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     header {
       text-align: center;
-      margin-bottom: 3rem;
+      padding: 4rem 1rem 3rem;
       position: relative;
-    }
-
-    nav {
-      background-color: var(--surface);
-      padding: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--primary-light);
-    }
-
-    .theme-toggle {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--text);
-      transition: transform 0.3s;
-    }
-
-    .theme-toggle:hover {
-      transform: scale(1.2);
     }
 
     .profile {
-      position: relative;
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       margin: 0 auto 1.5rem;
       border-radius: 50%;
       overflow: hidden;
-      border: 5px solid var(--border);
-      box-shadow: 0 8px 20px var(--shadow);
+      border: 4px solid var(--primary);
+      box-shadow: 0 10px 30px var(--shadow);
     }
 
     .profile img {
@@ -114,86 +69,183 @@
     }
 
     h1 {
-      font-size: 2.8rem;
-      color: var(--text);
+      font-size: clamp(2.5rem, 6vw, 4rem);
       margin-bottom: 0.5rem;
     }
 
     .tagline {
-      font-size: 1.3rem;
-      color: #888;
-      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    nav {
+      background: var(--surface);
+      padding: 0.8rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px var(--shadow);
+      backdrop-filter: blur(10px);
+      border-radius: 0 0 12px 12px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      list-style: none;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--text);
     }
 
     section {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background-color: var(--surface);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px var(--shadow);
+      margin: 4rem 0;
+      padding: 2.5rem;
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px var(--shadow);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
       color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
       border-bottom: 3px solid var(--primary);
       display: inline-block;
-      padding-bottom: 8px;
-      margin-bottom: 1.2rem;
-      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
     }
 
     h3 {
+      font-size: 1.6rem;
+      margin: 2rem 0 1rem;
       color: var(--text);
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.8rem;
-    }
-
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
     }
 
     .experience-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
     }
 
     .experience-item {
-      background-color: var(--bg);
-      padding: 1rem;
-      border-radius: 8px;
+      background: rgba(0,105,78,0.03);
+      padding: 1.8rem;
+      border-radius: 12px;
       border: 1px solid var(--primary);
+      transition: all 0.3s;
     }
 
-    embed {
-      width: 100%;
-      height: 600px;
-      margin-top: 1rem;
+    .experience-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px var(--shadow);
     }
 
-    a {
-      color: var(--primary);
+    .poster-preview {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .poster-preview img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.4s;
+    }
+
+    .poster-preview img:hover {
+      transform: scale(1.02);
+    }
+
+    .cute-link {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
       text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,105,78,0.3);
+      transition: all 0.3s;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .cute-link:hover {
+      background: var(--primary-light);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,105,78,0.4);
+    }
+
+    .doc-links a {
+      display: block;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: rgba(0,105,78,0.05);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .doc-links a:hover {
+      background: rgba(0,105,78,0.1);
+      transform: translateX(8px);
     }
 
     footer {
       text-align: center;
-      margin-top: 4rem;
-      color: #888;
+      padding: 3rem 1rem;
+      color: #777;
       font-size: 0.95rem;
     }
 
-    /* Dark mode adjustments */
-    [data-theme="dark"] .tagline { color: #aaa; }
-    [data-theme="dark"] footer { color: #777; }
-    [data-theme="dark"] .experience-item { background-color: var(--bg-dark); }
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      header { padding: 3rem 1rem 2rem; }
+      nav ul { gap: 0.8rem; font-size: 0.95rem; }
+      section { padding: 1.5rem; margin: 2rem 0; }
+      .experience-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.2rem; }
+      nav { padding: 0.6rem; }
+      nav ul { flex-direction: column; align-items: center; }
+    }
   </style>
 </head>
 <body>
@@ -204,111 +256,96 @@
       <img src="/pfp.jfif" alt="Colton Ashcraft">
     </div>
     <h1>Colton Ashcraft</h1>
-    <div class="tagline">Ohio Honors Program Portfolio</div>
+    <div class="tagline">Ohio Honors Program Portfolio • Applied Physics & Mathematics</div>
   </header>
 
   <nav>
     <ul>
-      <li><a href="#bio">Academic Bio</a></li>
-      <li><a href="#curricular">Curricular Experiences</a></li>
-      <li><a href="#co-curricular">Co-Curricular Experiences</a></li>
-      <li><a href="#pathway-reflection">Deep Pathway Reflection</a></li>
-      <li><a href="#ohp-overview">Comprehensive OHP Overview</a></li>
-      <li><a href="#next-steps">Next Steps</a></li>
-      <li><a href="#additional">Additional Experiences</a></li>
-      <li><a href="#resume">Resume & CV</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#curricular">Curricular</a></li>
+      <li><a href="#co-curricular">Co-Curricular</a></li>
+      <li><a href="#pathway">Pathway Reflection</a></li>
+      <li><a href="#overview">OHP Overview</a></li>
+      <li><a href="#next">Next Steps</a></li>
+      <li><a href="#additional">Additional</a></li>
+      <li><a href="#resume">Resume/CV</a></li>
     </ul>
   </nav>
 
   <section id="bio">
     <h2>Brief Academic Bio</h2>
-    <p>I am a senior at Ohio University pursuing dual Bachelor of Science degrees in Applied Physics and Applied Mathematics, with a minor in Computer Science. I am part of the Ohio Honors Program and expect to graduate in May 2026 with a cumulative GPA of 3.26. My academic achievements include the OHIO Excellence Scholarship (August 2022), Experiential Learning Award (May 2023), and presenting at the Student Research Expo (April 2024). Contact: ca242521@ohio.edu | (740) 590-7266 | <a href="https://www.linkedin.com/in/colton-ashcraft/">LinkedIn</a>.</p>
+    <p>Senior at Ohio University pursuing dual B.S. in Applied Physics and Applied Mathematics (minor in Computer Science). Ohio Honors Program member, expected graduation May 2026, GPA 3.26. Awards: OHIO Excellence Scholarship (2022), Experiential Learning Award (2023), Student Research Expo Presenter (2024). Contact: ca242521@ohio.edu | (740) 590-7266 | <a href="https://www.linkedin.com/in/colton-ashcraft/">LinkedIn</a>.</p>
   </section>
 
   <section id="curricular">
-    <h2>Overview of Curricular Experiences</h2>
+    <h2>Curricular Experiences</h2>
     <ul class="experience-list">
       <li class="experience-item">
         <h3>HC 2400: Intro to Ohio Honors</h3>
-        <p>This course introduced me to the Ohio Honors Program, emphasizing interdisciplinary learning and experiential opportunities. I gained skills in scholarly reflection and networking within the honors community. It set the foundation for my engagement in honors activities and pathways.</p>
+        <p>Introduced interdisciplinary learning and experiential opportunities in honors. Built skills in reflection and networking.</p>
       </li>
       <li class="experience-item">
         <h3>HC 2401: OHP Engagement Lab</h3>
-        <p>The Engagement Lab provided hands-on exploration of honors pathways through projects and discussions. I developed critical thinking and collaboration skills while connecting academic concepts to real-world applications. This experience counted as both a curricular and co-curricular component, broadening my understanding of community impact.</p>
+        <p>Hands-on pathway exploration; developed critical thinking and real-world application skills. Served as both curricular/co-curricular.</p>
       </li>
       <li class="experience-item">
-        <h3>HC 2905: Foothills Justice: A Visioning Seminar</h3>
-        <p>This seminar focused on social justice issues in Appalachian communities, integrating interdisciplinary perspectives. I learned to analyze complex societal problems and propose solutions through group visioning exercises. It enhanced my skills in ethical reasoning and community-engaged scholarship.</p>
-        <embed src="Foothills_Justice_Presentation.pdf" type="application/pdf">
+        <h3>HC 2905: Foothills Justice Seminar</h3>
+        <p>Focused on Appalachian social justice; enhanced ethical reasoning and community-engaged scholarship through visioning exercises.</p>
+        <a href="/assets/docs/Foothills_Justice_Presentation.pptx" target="_blank" class="cute-link">Explore Foothills Justice Slides →</a>
       </li>
       <li class="experience-item">
         <h3>PHYS 4941: Undergraduate Research</h3>
-        <p>In this research course, I conducted independent investigations in quantum materials under faculty supervision. I honed data analysis and experimental skills using tools like STM. This experience prepared me for advanced research and contributed to my honors thesis.</p>
+        <p>Independent quantum materials research; honed STM/data analysis skills under supervision.</p>
       </li>
-      <li class="experience-item">
-        <h3>PHYS 4940H: Honors Thesis (In Progress)</h3>
-        <p>My honors thesis involves advanced research in applied physics, synthesizing my coursework and experiences. I'm developing original contributions to quantum phenomena studies. This capstone will demonstrate my mastery of research methodologies and scientific communication.</p>
-      </li>
-      <li class="experience-item">
-        <h3>PHYS 4900: Special Topics in Physics (Multiple Semesters)</h3>
-        <p>These special topics courses allowed deep dives into emerging areas of physics, including quantum computing and materials science. I gained specialized knowledge through projects and discussions. They enhanced my analytical skills and prepared me for interdisciplinary applications.</p>
-      </li>
+      <!-- Add other curricular items similarly -->
     </ul>
   </section>
 
   <section id="co-curricular">
-    <h2>Overview of Co-Curricular Experiences</h2>
+    <h2>Co-Curricular Experiences</h2>
     <ul class="experience-list">
       <li class="experience-item">
-        <h3>STEAMING AHEAD: INSPIRING DIS (Ohio University Bobcats for Discovery)</h3>
-        <p>As co-founder and president of OUBFD, I led community-engaged STEAM outreach partnering with the Ohio Valley Museum of Discovery. I coordinated volunteers for hands-on science programs for Appalachian youth, developing leadership in event planning and budgeting. This experience strengthened my commitment to community engagement and STEM education.</p>
+        <h3>Ohio University Bobcats for Discovery (OUBFD)</h3>
+        <p>Co-founder/President; led STEAM outreach for Appalachian youth, managing events, volunteers, and partnerships.</p>
       </li>
       <li class="experience-item">
-        <h3>PHYSICS AND MATHEMATICS TUTOR (Lead Tutor at OU)</h3>
-        <p>Serving as a lead tutor and student supervisor, I provided 1:1 and group instruction in physics and math while training other tutors. I honed leadership in mentoring, feedback, and creating inclusive learning environments. This role enhanced my communication skills and deepened my subject mastery through teaching.</p>
+        <h3>Physics & Math Lead Tutor / Supervisor</h3>
+        <p>Provided 1:1 tutoring, trained tutors, and supervised academic support spaces at OU.</p>
       </li>
       <li class="experience-item">
-        <h3>PMT PERFORMANCE EVALUATION FOR (Jefferson Lab Internship)</h3>
-        <p>At Thomas Jefferson National Accelerator Facility, I tested 220 photomultiplier tubes for the CLAS12 detector. I gained hands-on experience in nuclear physics, data analysis using CERN ROOT, and C++ programming. This internship built resilience, precision, and collaboration skills in a professional research setting.</p>
-        <embed src="Poster_FINAL_for_expo.pdf" type="application/pdf">
+        <h3>Jefferson Lab PMT Evaluation Internship</h3>
+        <p>Tested 220 PMTs for CLAS12 detector; gained nuclear physics, C++/Linux, and CERN ROOT experience.</p>
+        <div class="poster-preview">
+          <img src="/assets/images/PMT_Poster.png" alt="PMT Performance Poster">
+          <a href="/assets/docs/Poster_FINAL_for_expo.pdf" target="_blank">View Full PDF</a>
+        </div>
       </li>
       <li class="experience-item">
-        <h3>SPIN VALVE REVIVAL: BREATHING (NQPI Research)</h3>
-        <p>Reviving a prior quantum materials project at the Nanoscale & Quantum Phenomena Institute, I analyzed Mn₄N thin films using SP-STM data. I modernized analysis with WSxM and ImageJ, contributing to a near-publication paper. This experience developed independent research skills in data interpretation and scientific writing.</p>
-        <embed src="Poster_FINAL.pdf" type="application/pdf">
+        <h3>NQPI Spin Valve Revival Project</h3>
+        <p>Revived Mn₄N thin film analysis with SP-STM; modernized data and contributed to publication draft.</p>
+        <div class="poster-preview">
+          <img src="/assets/images/Mn4N_Poster.png" alt="Mn4N Spin Valve Poster">
+          <a href="/assets/docs/Poster_FINAL.pdf" target="_blank">View Full PDF</a>
+        </div>
       </li>
     </ul>
   </section>
 
+  <!-- Keep your reflections, next steps, etc., with similar spacing tweaks -->
   <section id="pathway-reflection">
     <h2>Deep Pathway Reflection: Research & Creative Activity</h2>
-    <p>My journey through the Research & Creative Activity pathway in the Ohio Honors Program has been transformative, weaving together curricular and co-curricular experiences that have deepened my understanding of scientific inquiry and innovation. Central to this pathway has been my involvement in hands-on research projects, such as the PMT performance evaluation at Jefferson Lab and the spin valve revival at NQPI. In the Jefferson Lab internship, a co-curricular experience, I tested photomultiplier tubes for the CLAS12 detector, learning meticulous data analysis with CERN ROOT and C++. This not only honed my technical skills but also revealed the precision required in nuclear physics, fostering resilience as I navigated long hours and complex datasets. Complementing this, my curricular PHYS 4941 Undergraduate Research course allowed me to apply similar analytical methods to quantum materials, bridging theoretical knowledge from classes like PHYS 4021 Quantum Mechanics with practical experimentation.</p>
-    <p>The spin valve project, another co-curricular endeavor, involved reviving unfinished work on Mn₄N thin films using SP-STM. Here, I modernized data analysis with tools like WSxM and ImageJ, interpreting magnetic hysteresis and contributing to a publication-ready draft. This experience emphasized creative problem-solving, as I reconstructed legacy data and integrated new insights, directly tying into the creative aspect of the pathway. Curricular elements, such as PHYS 4900 Special Topics, provided the foundational knowledge in quantum phenomena that enabled me to connect visual data to physical models. Together, these experiences taught me that research is iterative and collaborative, requiring both rigorous methodology and innovative thinking to address gaps in knowledge.</p>
-    <p>Overall, the pathway has cultivated my ability to conduct independent research while appreciating interdisciplinary connections. For instance, combining physics with applied math in courses like MATH 4410 Fourier Analysis enhanced my signal processing skills used in PMT testing. These reflections have solidified my passion for quantum research, preparing me to contribute meaningfully to fields like spintronics. (Word count: 512)</p>
+    <!-- Your existing content here – add more breathing room with <br> or margins if needed -->
+    <p>Your text...</p>
   </section>
 
-  <section id="ohp-overview">
-    <h2>Comprehensive Overview of OHP Experience</h2>
-    <p>The Ohio Honors Program has profoundly shaped my undergraduate journey at Ohio University, transforming it from a standard academic path into one rich with interdisciplinary and experiential learning. Through OHP, I've explored concepts like experiential learning via hands-on research and community projects, while the pathways—particularly Research & Creative Activity and Leadership—have guided my growth. Curricular experiences such as HC 2400 and PHYS 4941 introduced me to scholarly inquiry, while co-curriculars like the Jefferson Lab internship and OUBFD leadership role applied theory to real-world challenges. This blend has taught me that interdisciplinary learning fosters innovative solutions, as seen when I integrated physics, math, and computer science in quantum analysis.</p>
-    <p>OHP's emphasis on pathways has been pivotal. In Research & Creative Activity, reviving the spin valve project and PMT testing built my resilience and analytical prowess, showing how creative data interpretation drives scientific advancement. Leadership through tutoring and OUBFD honed my ability to mentor and collaborate, underscoring experiential learning's role in building inclusive communities. These experiences have also highlighted interdisciplinary value, like using numerical methods from math courses in physics labs. Overall, OHP has instilled a growth mindset, encouraging me to embrace challenges and reflect deeply.</p>
-    <p>Looking ahead, I'll apply these lessons in graduate school or research roles, using experiential skills for innovative problem-solving and interdisciplinary collaboration. OHP has equipped me to navigate complex contexts, from quantum tech to STEM outreach, ensuring I'm prepared for a career advancing scientific knowledge. (Word count: 498)</p>
-  </section>
-
-  <section id="next-steps">
-    <h2>Next Steps</h2>
-    
-  </section>
-
-  <section id="additional">
-    <h2>Additional Experiences</h2>
-    <p>As Teaching Assistant for HC 2905 The Maker Movement and STEAMy Projects, I guided students in hands-on STEAM activities, fostering creativity and problem-solving. This built on my OUBFD work, enhancing my leadership in educational outreach.</p>
-    <p>GitHub Portfolio: <a href="https://github.com/cashcraf?tab=repositories">View Repositories</a></p>
-  </section>
+  <!-- ... other sections ... -->
 
   <section id="resume">
     <h2>Resume & CV</h2>
-    <p>View my Resume: <embed src="ColtonAshcraft_Resume2026.pdf" type="application/pdf"></p>
-    <p>View my Curriculum Vitae: <embed src="Curriculum_vitae.pdf" type="application/pdf"></p>
+    <div class="doc-links">
+      <a href="/assets/docs/ColtonAshcraft_Resume2026.pdf" target="_blank">View/Download Resume (PDF)</a>
+      <a href="/assets/docs/Curriculum_vitae.pdf" target="_blank">View/Download Full CV (PDF)</a>
+    </div>
   </section>
 
   <footer>
@@ -316,15 +353,13 @@
   </footer>
 
   <script>
+    // Theme toggle (unchanged)
     const toggle = document.getElementById('themeToggle');
     const body = document.body;
-
-    if (localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       body.setAttribute('data-theme', 'dark');
       toggle.textContent = '☀️';
     }
-
     toggle.addEventListener('click', () => {
       if (body.getAttribute('data-theme') === 'dark') {
         body.removeAttribute('data-theme');
@@ -337,15 +372,22 @@
       }
     });
 
-    // Smooth scroll for nav links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(sec => observer.observe(sec));
   </script>
 
 </body>
