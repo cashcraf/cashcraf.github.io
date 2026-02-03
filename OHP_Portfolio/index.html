@@ -48,18 +48,18 @@
 
     header {
       text-align: center;
-      padding: 4rem 1rem 3rem;
+      padding: 5rem 1rem 4rem;
       position: relative;
     }
 
     .profile {
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.5rem;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 2rem;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid var(--primary);
-      box-shadow: 0 10px 30px var(--shadow);
+      border: 5px solid var(--primary);
+      box-shadow: 0 12px 35px var(--shadow);
     }
 
     .profile img {
@@ -69,14 +69,14 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
       margin-bottom: 0.5rem;
     }
 
     .tagline {
-      font-size: 1.4rem;
-      color: #666;
-      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      color: #555;
+      margin-bottom: 2.5rem;
     }
 
     nav {
@@ -87,16 +87,16 @@
       z-index: 100;
       box-shadow: 0 4px 15px var(--shadow);
       backdrop-filter: blur(10px);
-      border-radius: 0 0 12px 12px;
+      border-radius: 0 0 16px 16px;
     }
 
     nav ul {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1.2rem;
+      gap: 1.5rem;
       list-style: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
     }
 
@@ -113,24 +113,24 @@
 
     .theme-toggle {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 1.5rem;
+      right: 1.5rem;
       background: none;
       border: none;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       cursor: pointer;
       color: var(--text);
     }
 
     section {
-      margin: 4rem 0;
-      padding: 2.5rem;
+      margin: 5rem 0;
+      padding: 3rem 2.5rem;
       background: var(--surface);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px var(--shadow);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px var(--shadow);
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
     }
 
     section.visible {
@@ -140,111 +140,97 @@
 
     h2 {
       color: var(--primary);
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 3px solid var(--primary);
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 4px solid var(--primary);
       display: inline-block;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.6rem;
     }
 
     h3 {
-      font-size: 1.6rem;
-      margin: 2rem 0 1rem;
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1.2rem;
       color: var(--text);
-    }
-
-    .experience-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
-      list-style: none;
-    }
-
-    .experience-item {
-      background: rgba(0,105,78,0.03);
-      padding: 1.8rem;
-      border-radius: 12px;
-      border: 1px solid var(--primary);
-      transition: all 0.3s;
-    }
-
-    .experience-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px var(--shadow);
-    }
-
-    .poster-preview {
-      margin: 1.5rem 0;
       text-align: center;
     }
 
-    .poster-preview img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px var(--shadow);
-      transition: transform 0.4s;
+    p, ul {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
     }
 
-    .poster-preview img:hover {
-      transform: scale(1.02);
+    ul.experience-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .experience-item {
+      background: rgba(0,105,78,0.04);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--primary);
+      transition: all 0.4s ease;
+      text-align: left;
+    }
+
+    .experience-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px var(--shadow);
+    }
+
+    .poster-preview, .doc-links {
+      margin: 2rem auto;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .poster-preview a, .doc-links a {
+      display: inline-block;
+      margin: 1rem;
     }
 
     .cute-link {
-      display: inline-block;
-      margin: 1rem 0;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2.5rem;
       background: var(--primary);
       color: white;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 6px 15px rgba(0,105,78,0.3);
+      box-shadow: 0 8px 20px rgba(0,105,78,0.3);
       transition: all 0.3s;
     }
 
     .cute-link:hover {
       background: var(--primary-light);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,105,78,0.4);
-    }
-
-    .doc-links a {
-      display: block;
-      margin: 1rem 0;
-      padding: 1rem;
-      background: rgba(0,105,78,0.05);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .doc-links a:hover {
-      background: rgba(0,105,78,0.1);
-      transform: translateX(8px);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,105,78,0.4);
     }
 
     footer {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem 2rem;
       color: #777;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
       body { padding: 1rem; }
-      header { padding: 3rem 1rem 2rem; }
-      nav ul { gap: 0.8rem; font-size: 0.95rem; }
-      section { padding: 1.5rem; margin: 2rem 0; }
+      header { padding: 4rem 1rem 3rem; }
+      nav ul { gap: 1rem; font-size: 1rem; }
+      section { padding: 2rem 1.5rem; margin: 3rem 0; }
       .experience-list { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 2.2rem; }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
       nav { padding: 0.6rem; }
-      nav ul { flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; gap: 0.8rem; }
     }
   </style>
 </head>
@@ -253,7 +239,7 @@
   <header>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     <div class="profile">
-      <img src="/pfp.jfif" alt="Colton Ashcraft">
+      <img src="/OHP_Portfolio/assets/me.png" alt="Colton Ashcraft">
     </div>
     <h1>Colton Ashcraft</h1>
     <div class="tagline">Ohio Honors Program Portfolio • Applied Physics & Mathematics</div>
@@ -273,8 +259,8 @@
   </nav>
 
   <section id="bio">
-    <h2>Brief Academic Bio</h2>
-    <p>Senior at Ohio University pursuing dual B.S. in Applied Physics and Applied Mathematics (minor in Computer Science). Ohio Honors Program member, expected graduation May 2026, GPA 3.26. Awards: OHIO Excellence Scholarship (2022), Experiential Learning Award (2023), Student Research Expo Presenter (2024). Contact: ca242521@ohio.edu | (740) 590-7266 | <a href="https://www.linkedin.com/in/colton-ashcraft/">LinkedIn</a>.</p>
+    <h2>About Me</h2>
+    <p>Senior at Ohio University pursuing dual B.S. in Applied Physics and Applied Mathematics (minor in Computer Science). Ohio Honors Program member, expected graduation May 2026, GPA 3.255. Awards: OHIO Excellence Scholarship (2022), Experiential Learning Award (2023), Student Research Expo Presenter (2024). Contact: ca242521@ohio.edu | (740) 590-7266 | <a href="https://www.linkedin.com/in/colton-ashcraft/">LinkedIn</a>.</p>
   </section>
 
   <section id="curricular">
@@ -293,7 +279,7 @@
         <p>Focused on Appalachian social justice; enhanced ethical reasoning and community-engaged scholarship through visioning exercises.</p>
         <div class="poster-preview">
           <a href="/OHP_Portfolio/assets/Foothills_Justice_Presentation.pdf" target="_blank" class="cute-link">Explore Foothills Justice Slides →</a>
-        <div>
+        </div>
       </li>
       <li class="experience-item">
         <h3>PHYS 4941: Undergraduate Research</h3>
@@ -325,16 +311,15 @@
         <h3>Jefferson Lab PMT Evaluation Internship</h3>
         <p>Tested 220 PMTs for CLAS12 detector; gained hands-on nuclear physics, C++/Linux proficiency, and CERN ROOT data analysis experience.</p>
         <div class="poster-preview">
-
-          <a href="/OHP_Portfolio/assets/Poster_FINAL_for_expo.pdf" target="_blank" class="cute-link">View Poster →</a>
+          <a href="/OHP_Portfolio/assets/Poster_FINAL_for_expo.pdf" target="_blank" class="cute-link">View PMT Poster →</a>
         </div>
       </li>
       <li class="experience-item">
         <h3>NQPI Spin Valve Revival Project</h3>
         <p>Revived Mn₄N thin film analysis with SP-STM; modernized data processing and contributed to publication-ready draft.</p>
+        <p>I created a video game that simulates the feeling of taking pieces of work and getting it put together in time with all the obstacles it comes with.</p>
         <div class="poster-preview">
-
-          <a href="/OHP_Portfolio/assets/Poster_FINAL.pdf" target="_blank" class="cute-link">View Poster →</a>
+          <a href="https://cashcraf.itch.io/ohp-discussion-2025" target="_blank" class="cute-link">Check out my video game! →</a>
         </div>
       </li>
     </ul>
@@ -345,6 +330,9 @@
     <p>My journey through the Research & Creative Activity pathway has been transformative, weaving curricular and co-curricular experiences that deepened my understanding of scientific inquiry and innovation. Central to this has been hands-on research at Jefferson Lab (PMT evaluation) and NQPI (spin valve revival). At Jefferson Lab, I tested photomultiplier tubes for CLAS12, learning meticulous data analysis with CERN ROOT and C++. This honed technical precision and resilience in navigating complex datasets. Complementing this, PHYS 4941 Undergraduate Research applied similar methods to quantum materials, bridging theory from PHYS 4021 Quantum Mechanics with practical experimentation.</p>
     <p>The spin valve project involved reviving Mn₄N thin film data with SP-STM, modernizing analysis using WSxM and ImageJ, and interpreting magnetic hysteresis for a publication draft. This emphasized creative problem-solving in reconstructing legacy data and integrating new insights. Curricular PHYS 4900 Special Topics provided foundational knowledge in quantum phenomena, enabling connections between visual data and physical models. These experiences taught me research is iterative and collaborative, requiring rigorous methodology and innovative thinking.</p>
     <p>Combining physics with applied math (e.g., MATH 4410 Fourier Analysis) enhanced signal processing skills used in PMT testing. The pathway solidified my passion for quantum research and prepared me for contributions in spintronics. (Word count: ~512)</p>
+    <div class="poster-preview">
+      <a href="/OHP_Portfolio/assets/Poster_FINAL.pdf" target="_blank" class="cute-link">View Spin Valve Poster →</a>
+    </div>
   </section>
 
   <section id="overview">
@@ -356,20 +344,26 @@
 
   <section id="next">
     <h2>Next Steps</h2>
-    <p>After graduation in May 2026, I plan to pursue graduate studies in condensed matter physics, focusing on quantum materials and spintronics. This aligns with my NQPI and Jefferson Lab experiences. Long-term, I aim for a research career advancing energy-efficient electronics or quantum computing technologies.</p>
+    <p>My text here...</p>
   </section>
 
   <section id="additional">
     <h2>Additional Experiences</h2>
     <p>As Teaching Assistant for HC 2905 The Maker Movement and STEAMy Projects, I guided students in hands-on STEAM activities, fostering creativity and problem-solving while building on OUBFD outreach leadership.</p>
-    <a href="https://github.com/cashcraf?tab=repositories" target="_blank" class="cute-link">View Repositories →</a>
+    <div class="poster-preview">
+      <a href="https://github.com/cashcraf?tab=repositories" target="_blank" class="cute-link">View GitHub Repositories →</a>
+    </div>
   </section>
 
   <section id="resume">
     <h2>Resume & CV</h2>
-    </div>
-      <a href="/OHP_Portfolio/assets/ColtonAshcraft_Resume2026.pdf" target="_blank" class="cute-link">View/Download Resume (PDF) →</a>
-      <a href="/OHP_Portfolio/assets/Curriculum_vitae.pdf" target="_blank" class="cute-link">View/Download Full CV (PDF) →</a>
+    <div class="poster-preview">
+      <a href="/OHP_Portfolio/assets/ColtonAshcraft_Resume2026.pdf" target="_blank" class="cute-link">
+        View/Download Resume (PDF) →
+      </a>
+      <a href="/OHP_Portfolio/assets/Curriculum_vitae.pdf" target="_blank" class="cute-link">
+        View/Download Full CV (PDF) →
+      </a>
     </div>
   </section>
 
